@@ -562,12 +562,14 @@ def get_conversion_factor(structure, specie, temperature):
     if type(specie) is Specie:
         df_sp = specie
     else:
-        try:
-            df_sp = Specie.from_string(specie)
-        except:
-            raise Exception("Please provide oxidation decorated specie, like Li+, O2-")
+        #try:
+        #    df_sp = Specie.from_string(specie)
+        #except:
+        #    raise Exception("Please provide oxidation decorated specie, like Li+, O2-")
+        df_sp = specie
     z = df_sp.oxi_state
-    el, occu = structure.composition.items()[0]
+    #el, occu = structure.composition.items()[0]
+    el, occu = structure.sites[0].specie, structure.sites[0].species_and_occu.num_atoms
     if isinstance(el, Specie):  # oxidation decorated structure
         n = structure.composition[specie]
     else:

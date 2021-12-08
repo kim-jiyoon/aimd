@@ -305,9 +305,9 @@ class DiffusivityAnalyzer(MSONable):
                 # check that the runs are continuous
                 fdist = pbc_diff(vr.initial_structure.frac_coords,
                                  final_structure.frac_coords)
-                if np.any(fdist > 0.001):
-                    raise ValueError('initial and final structures do not '
-                                     'match.')
+                #if np.any(fdist > 0.001):
+                #    raise ValueError('initial and final structures do not '
+                #                     'match.')
                 final_structure = vr.final_structure
 
                 assert (vr.ionic_step_skip or 1) == step_skip
